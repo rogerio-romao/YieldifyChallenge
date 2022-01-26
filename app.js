@@ -14,7 +14,8 @@ class Circle {
     this.dy = Math.random() * 8 - 4
     this.radius = Math.random() * 30 + 20
     this.friction = 0.75
-    this.color = 'black'
+    this.gravity = 0.1
+    this.color = generateColor()
   }
 
   collisionDetect() {
@@ -48,6 +49,7 @@ class Circle {
   update() {
     this.draw()
     this.x += this.dx
+    this.dy += this.gravity
     this.y += this.dy
     this.collisionDetect()
   }
