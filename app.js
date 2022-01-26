@@ -14,23 +14,26 @@ class Circle {
     this.dy = Math.random() * 8 - 4
     this.radius = Math.random() * 30 + 20
     this.friction = 0.75
-    this.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(
-      Math.random() * 255
-    )}, ${Math.floor(Math.random() * 255)})`
+    this.color = 'black'
   }
 
   collisionDetect() {
     if (this.x + this.radius > canvas.width) {
-      this.dx = -this.dx
+      this.x = canvas.width - this.radius
+      this.dx = -(this.dx * this.friction)
     }
     if (this.x - this.radius < 0) {
-      this.dx = -this.dx
+      this.x = this.radius
+      this.dx = -(this.dx * this.friction)
     }
     if (this.y + this.radius > canvas.height) {
+      this.y = canvas.height - this.radius
+      this.dx *= this.friction
       this.dy = -this.dy * this.friction
     }
     if (this.y - this.radius < 0) {
-      this.dy = -this.dy
+      this.y = this.radius
+      this.dy = -(this.dy * this.friction)
     }
   }
 
@@ -70,4 +73,10 @@ function generateCircle(e) {
 
   const circle = new Circle(x, y)
   circles.push(circle)
+}
+
+function generateColor() {
+  return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(
+    Math.random() * 255
+  )}, ${Math.floor(Math.random() * 255)})`
 }
