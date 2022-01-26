@@ -10,8 +10,8 @@ class Circle {
   constructor(x, y) {
     this.x = x
     this.y = y
-    this.dx = Math.random() * 8 - 4
-    this.dy = Math.random() * 8 - 4
+    this.dx = Math.random() * 12 - 6
+    this.dy = Math.random() * 12 - 6
     this.radius = Math.random() * 30 + 20
     this.friction = 0.75
     this.gravity = 0.1
