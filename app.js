@@ -1,8 +1,11 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
+const msg = document.getElementById('msg')
 
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
+
+const colors = ['#71B9E0', '#E09871', '#71E0CF', '#8CC02A', '#E07181']
 
 const circles = []
 
@@ -70,6 +73,9 @@ animate()
 canvas.addEventListener('click', generateCircle)
 
 function generateCircle(e) {
+  if (!msg.classList.contains('hide')) {
+    msg.classList.add('hide')
+  }
   const x = e.offsetX
   const y = e.offsetY
 
@@ -78,7 +84,5 @@ function generateCircle(e) {
 }
 
 function generateColor() {
-  return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(
-    Math.random() * 255
-  )}, ${Math.floor(Math.random() * 255)})`
+  return colors[Math.floor(Math.random() * colors.length)]
 }
