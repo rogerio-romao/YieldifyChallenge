@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 
+/* body is centering the msg div and position relative to parent the canvas */
 body {
   margin: 0;
   box-sizing: border-box;
@@ -12,6 +13,7 @@ body {
   font-size: 1.75rem;
 }
 
+/* making canvas go on top of msg div  */
 canvas {
   cursor: pointer;
   position: absolute;
@@ -21,8 +23,10 @@ canvas {
 
 #msg {
   color: #fff;
+  user-select: none;
 }
 
+/* msg div gets a fadeout animation upon first click, forwards mode makes sure it stays hidden  */
 #msg.hide {
   animation: 2s fadeOut forwards;
 }
